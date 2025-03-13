@@ -4,38 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
-    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="style-dark.css" media="screen" />
 </head>
 <body>
     <div id="calculadora">
+        <button id="light" onclick="mudarBack()">
+            <img src="icon-1.png" id="img-light"/>
+        </button>
         <input type="text" id="resultado-passado" value="">
         <br>
         <input type="text" id="resultado" value="0">
         <br>
-        <input type="button" class="gray" value="C" onclick="clean()">
-        <input type="button" class="gray" value="+/-" >
-        <input type="button" class="gray" value="%" >
-        <input type="button" class="blue" value="÷" onclick="insert('÷')">
-        <br>
-        <input type="button" value="7" onclick="insert('7')" >
-        <input type="button" value="8" onclick="insert('8')">
-        <input type="button" value="9" onclick="insert('9')">
-        <input type="button" class="blue" value="×" onclick="insert('×')">
-        <br>
-        <input type="button" value="4" onclick="insert('4')">
-        <input type="button" value="5" onclick="insert('5')">
-        <input type="button" value="6" onclick="insert('6')">
-        <input type="button" class="blue" value="-" onclick="insert('-')">
-        <br>
-        <input type="button" value="1"onclick="insert('1')">
-        <input type="button" value="2"onclick="insert('2')">
-        <input type="button" value="3"onclick="insert('3')">
-        <input type="button" class="blue" value="+" onclick="insert('+')">
-        <br>
-        <input type="button" value="." onclick="insert('.')">
-        <input type="button" value="0" onclick="insert('0')">
-        <input type="button" value="<-" onclick="apagar()">
-        <input type="button" class="blue" value="=" onclick="operation()">
+        <div id="buttons">
+            <input type="button" class="gray" value="C" onclick="clean()">
+            <input type="button" class="gray" value="+/-" >
+            <input type="button" class="gray" value="%" >
+            <input type="button" class="blue" value="÷" onclick="insert('÷')">
+  
+            <input type="button" value="7" onclick="insert('7')" >
+            <input type="button" value="8" onclick="insert('8')">
+            <input type="button" value="9" onclick="insert('9')">
+            <input type="button" class="blue" value="×" onclick="insert('×')">
+     
+            <input type="button" value="4" onclick="insert('4')">
+            <input type="button" value="5" onclick="insert('5')">
+            <input type="button" value="6" onclick="insert('6')">
+            <input type="button" class="blue" value="-" onclick="insert('-')">
+   
+            <input type="button" value="1"onclick="insert('1')">
+            <input type="button" value="2"onclick="insert('2')">
+            <input type="button" value="3"onclick="insert('3')">
+            <input type="button" class="blue" value="+" onclick="insert('+')">
+    
+            <input type="button" value="." onclick="insert('.')">
+            <input type="button" value="0" onclick="insert('0')">
+            <input type="button" value="<-" onclick="apagar()">
+            <input type="button" class="blue" value="=" onclick="operation()">
+        </div>
     </div>
     <script>
         document.getElementById('resultado').readOnly = true;
@@ -67,6 +72,13 @@
         str = str.slice(0, -1)+ '';
         document.getElementById('resultado').value = str;
     }
+    function mudarBack(){
+        str = document.getElementById('img-light').src;
+        document.getElementById('img-light').src = "icon-2.jpg"
+        document.getElementById('light').id = "dark";
+    }
+        
+    
     </script>
 </body>
 </html>
