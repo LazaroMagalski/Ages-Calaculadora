@@ -13,6 +13,7 @@ body{
     background-color: #f8feff;
     margin: 0 auto;
     padding: 1%;
+    border: 1px solid #000;
 }
 input[type=text]{
     text-align: right;
@@ -47,7 +48,14 @@ input[type=button] {
     cursor: pointer;
     font-size: 1em;
 
- } 
+ }
+ .dark .btn{
+    background-color: #2E2F38;
+    color: white;
+ }
+ .dark{
+    background-color: #17171C;
+ }
  .gray{
     background-color: #ada8a8;
     color: white;
@@ -65,15 +73,11 @@ input[type=button] {
     display: flex;
     border: none;
     margin: 0 auto;
+    padding: 0 auto;
     background-color: #f8feff;
  }
  #light img{
     height: 2em;
- }
- #dark{
-    height: 2em;
-    display: flex;
-    border: none;
     margin: 0 auto;
-    background-color: #f8feff;
+    padding: 0 auto;
  }

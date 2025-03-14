@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
-    <link rel="stylesheet" type="text/css" href="style-dark.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 </head>
 <body>
     <div id="calculadora">
@@ -17,28 +17,28 @@
         <br>
         <div id="buttons">
             <input type="button" class="gray" value="C" onclick="clean()">
-            <input type="button" class="gray" value="+/-" >
-            <input type="button" class="gray" value="%" >
+            <input type="button" class="gray" value="+/-" onclick="inverter()">
+            <input type="button" class="gray" value="%" onclick="calculoPorcentagem()">
             <input type="button" class="blue" value="÷" onclick="insert('÷')">
   
-            <input type="button" value="7" onclick="insert('7')" >
-            <input type="button" value="8" onclick="insert('8')">
-            <input type="button" value="9" onclick="insert('9')">
-            <input type="button" class="blue" value="×" onclick="insert('×')">
+            <input type="button" value="7" class="btn" onclick="insert('7')" >
+            <input type="button" value="8" class="btn" onclick="insert('8')">
+            <input type="button" value="9" class="btn" onclick="insert('9')">
+            <input type="button" class="blue" class="btn" value="×" onclick="insert('×')">
      
-            <input type="button" value="4" onclick="insert('4')">
-            <input type="button" value="5" onclick="insert('5')">
-            <input type="button" value="6" onclick="insert('6')">
+            <input type="button" value="4" class="btn" onclick="insert('4')">
+            <input type="button" value="5" class="btn" onclick="insert('5')">
+            <input type="button" value="6" class="btn" onclick="insert('6')">
             <input type="button" class="blue" value="-" onclick="insert('-')">
    
-            <input type="button" value="1"onclick="insert('1')">
-            <input type="button" value="2"onclick="insert('2')">
-            <input type="button" value="3"onclick="insert('3')">
+            <input type="button" value="1" class="btn" onclick="insert('1')">
+            <input type="button" value="2" class="btn" onclick="insert('2')">
+            <input type="button" value="3" class="btn" onclick="insert('3')">
             <input type="button" class="blue" value="+" onclick="insert('+')">
     
-            <input type="button" value="." onclick="insert('.')">
-            <input type="button" value="0" onclick="insert('0')">
-            <input type="button" value="<-" onclick="apagar()">
+            <input type="button" value="." class="btn" onclick="insert('.')">
+            <input type="button" value="0" class="btn" onclick="insert('0')">
+            <input type="button" value="<-" class="btn" onclick="apagar()">
             <input type="button" class="blue" value="=" onclick="operation()">
         </div>
     </div>
@@ -73,12 +73,39 @@
         document.getElementById('resultado').value = str;
     }
     function mudarBack(){
-        str = document.getElementById('img-light').src;
-        document.getElementById('img-light').src = "icon-2.jpg"
-        document.getElementById('light').id = "dark";
+        document.getElementById('calculadora').classList.toggle('dark');
+        if(document.getElementById('calculadora').classList.contains('dark')){
+            document.getElementById('img-light').src = "icon-2.png";
+            document.getElementById('calculadora').style.backgroundColor = "#17171C";
+            document.getElementById('light').style.backgroundColor = "#17171C";
+            document.getElementById('resultado').style.backgroundColor = "#17171C";
+            document.getElementById('resultado-passado').style.backgroundColor = "#17171C";
+            document.getElementById('resultado').style.color = "white";
+            document.getElementById('resultado-passado').style.color = "white";
+        }else{
+            document.getElementById('img-light').src = "icon-1.png";
+            document.getElementById('calculadora').style.backgroundColor = "white";
+            document.getElementById('light').style.backgroundColor = "white";
+            document.getElementById('resultado').style.backgroundColor = "white";
+            document.getElementById('resultado-passado').style.backgroundColor = "white";
+            document.getElementById('resultado').style.color = "black";
+            document.getElementById('resultado-passado').style.color = "black";
+        }
     }
-        
-    
+    function inverter(){
+        var str = document.getElementById('resultado').value;
+        if(str[0] == '-'){
+            str = str.slice(1, str.length);
+        }else{
+            str = '-'+str;
+        }
+        document.getElementById('resultado').value = str;
+    }
+    function calculoPorcentagem(){
+        var str = document.getElementById('resultado').value;
+        str = eval(str)/100;
+        document.getElementById('resultado').value = str;
+    }
     </script>
 </body>
 </html>
